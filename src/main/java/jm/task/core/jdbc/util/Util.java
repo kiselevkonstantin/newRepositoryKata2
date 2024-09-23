@@ -15,13 +15,13 @@ public class Util {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Подключение к БД установлено");
 
-        }  catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Ошибка подключения к БД");
         }
@@ -29,9 +29,9 @@ public class Util {
     }
 
 
-     public static SessionFactory getFactory(){
+    public static SessionFactory getFactory() {
         return new Configuration().configure("hibernate.cfg.xml")
-                                  .addAnnotatedClass(User.class)
-                                  .buildSessionFactory();
-     }
+                .addAnnotatedClass(User.class)
+                .buildSessionFactory();
+    }
 }
